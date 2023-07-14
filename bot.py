@@ -23,15 +23,7 @@ async def on_message(message):
         if message.attachments != empty_array:
             files = message.attachments
             await modmail_channel.send("[" + message.author.display_name + "]")
-
-#python discord bot code above ^^
-from flask import Flask
-app = Flask(__name__)
-@app.route('/')
-def index():
-  return "Bot up and running"
-if __name__ == '__main__':
-  app.run(host="0.0.0.0",debug=True,port=8080)            
+        
             for file in files:
                 await modmail_channel.send(file.url)
         else:
@@ -51,5 +43,14 @@ if __name__ == '__main__':
             mod_message = string[index:]
             await member_object.send("[" + message.author.display_name + "]" + mod_message)
 
+
+#python discord bot code above ^^
+from flask import Flask
+app = Flask(__name__)
+@app.route('/')
+def index():
+  return "Bot up and running"
+if __name__ == '__main__':
+  app.run(host="0.0.0.0",debug=True,port=8080)    
 
 client.run(token)
